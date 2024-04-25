@@ -83,11 +83,15 @@ public class App {
             answer = sc.nextLine();
             if(answer.equals("inquiry"))
             {
-                Iterator iterator = queueResult.iterator();
-                while (iterator.hasNext())
-                {
-                    System.out.println(iterator.next()+ "\n");
-                }
+                // iterator로 했으나 foreach로 쓰라고 하는걸 이제봄..
+//                Iterator iterator = queueResult.iterator();
+//                while (iterator.hasNext())
+//                {
+//                    System.out.println(iterator.next()+ "\n");
+//                }
+
+                //  foreach로 사용
+                queueResult.stream().forEach(value->System.out.println(value+"\n"));
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
