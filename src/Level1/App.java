@@ -1,4 +1,5 @@
-import java.util.Iterator;
+package Level1;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -47,7 +48,7 @@ public class App {
                         System.out.println("0으로 나눌수는 없습니다");
                         yield 0;
                     }
-                    
+
                 }
                 default -> {
                     System.out.println("잘못된 사칙연산");
