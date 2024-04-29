@@ -9,6 +9,11 @@ public class App {
     public static void main(String[] args) {
 
         Caculator caculator = new Caculator();
+
+        // (8) 사칙연산 / 원넓이 클래스 구분
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+        CircleCalculator circleCalculator = new CircleCalculator();
+
         Scanner sc = new Scanner(System.in);
 
         // (2) App에서 똑같이 동작!
@@ -22,11 +27,11 @@ public class App {
                 double radius = sc.nextDouble();
 
                 try {
-                    caculator.calculateCircleArea(radius);
+                    circleCalculator.calculateCircleArea(radius);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 } finally {
-                    caculator.inquiryResultsCircle();
+                    circleCalculator.inquiryResultsCircle();
                 }
 
             }
@@ -41,7 +46,7 @@ public class App {
 
                 String answer = "";
                 try {
-                    caculator.calculate(operator, num1, num2);
+                    arithmeticCalculator.calculate(operator, num1, num2);
                 } catch (CaculateException e) {
                     System.out.println(e.getMessage());
                 } finally {
@@ -50,12 +55,12 @@ public class App {
                     // (4) 삭제메서드
                     System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
                     answer = sc.nextLine();
-                    if(answer.equals("remove"))  caculator.removeResult();
+                    if(answer.equals("remove"))  arithmeticCalculator.removeResult();
 
                     // (5) 조회메서드
                     System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                     answer = sc.nextLine();
-                    if(answer.equals("inquiry")) caculator.inquiryResults();
+                    if(answer.equals("inquiry")) arithmeticCalculator.inquiryResults();
 
                     System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
                     answer = sc.nextLine();
