@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class Caculator{
 
-    //(2-2) 결과저장
+    //(2) 결과저장
     Queue<String> saveQueue = new LinkedList<>();
 
     private static final String OPERATION_REG = "[+\\-*/]";
@@ -34,23 +34,20 @@ public class Caculator{
 
             }
             default -> {
-                //(2-1) 연산자 기호가 잘 못 들어온 경우
+                //(1) 연산자 기호가 잘 못 들어온 경우
                 if(!Pattern.matches(OPERATION_REG, operationInput+"")){
                     throw new CaculateException("연산자불일치");
                 }
                 yield 0;
             }
-        };
+        }; //switch end
 
-    }
-
-
-
-
-    //(2-2) 연산 결과는 Calculator 클래스의 연산 결과를 저장하는 필드에 저장
-    public void resultData(char type, int num1,int num2,double result){
-        String saveResult = num1 + " " + type + " " + num2 + " = " + result;
+        //(2) 결과저장
+        String saveResult = firstInput + " " + operationInput + " " + secondInput + " = " + result;
+        System.out.println(saveResult);
         saveQueue.add(saveResult);
+
+
     }
 
 }

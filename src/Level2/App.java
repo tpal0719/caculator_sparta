@@ -12,7 +12,6 @@ public class App {
 
         Scanner sc = new Scanner(System.in);
 
-        /* 반복문 시작 */
         System.out.print("첫 번째 숫자를 입력하세요:");
         int num1 = sc.nextInt();
         System.out.print("두 번째 숫자를 입력하세요:");
@@ -21,7 +20,16 @@ public class App {
         System.out.print("사칙연산 기호를 입력하세요: ");
         char operator = sc.next().charAt(0);
 
-        caculator.calculate(operator, num1, num2);
+        // (2) App에서 똑같이 동작!
+        try{
+            caculator.calculate(operator, num1, num2);
+        }
+        catch (CaculateException e){
+            System.out.println(e.getMessage());
+        }
+        finally {
+        }
+
 
     }
 }
