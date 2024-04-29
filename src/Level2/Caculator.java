@@ -6,8 +6,20 @@ import java.util.regex.Pattern;
 
 public class Caculator{
 
-    //(2) 결과저장
+    // (6) 생셩될때 초기화
+    Caculator(){
+        setSaveQueue(new LinkedList<>());
+    }
+
+    // (2) 결과저장
     Queue<String> saveQueue = new LinkedList<>();
+    // (3) Getter Setter 구현 (캡슐화)
+    public Queue<String> getSaveQueue() {
+        return saveQueue;
+    }
+    public void setSaveQueue(Queue<String> saveQueue) {
+        this.saveQueue = saveQueue;
+    }
 
     private static final String OPERATION_REG = "[+\\-*/]";
     private static final String NUMBER_REG = "^[0-9]*$";
@@ -49,5 +61,18 @@ public class Caculator{
 
 
     }
+
+    // (4) 가장 오래된 저장데이터 remove
+    public void removeResult()
+    {
+        saveQueue.remove();
+    }
+
+    // (5) 저장된 연산들 조회
+    public void inquiryResults() {
+        saveQueue.stream().forEach(value->System.out.println(value+"\n"));
+    }
+
+
 
 }
