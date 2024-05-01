@@ -16,9 +16,8 @@ public class App {
         while (true) {
 
             System.out.print("원의 넓이를 계산할것인가요?");
-            sc.nextLine();
-            String CircleOrCal =  sc.nextLine();
-            if (CircleOrCal.equals("네")) {
+            boolean CircleOrCal =  sc.nextBoolean();
+            if (CircleOrCal) {
                 System.out.print("원의 반지름을 입력하세요: ");
                 double radius = sc.nextDouble();
 
